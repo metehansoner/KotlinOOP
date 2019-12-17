@@ -9,13 +9,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var myUser = User("James", 50)
+        val myUser = User("James", 50)
 
-        var musician = Mucians("James", "Violin", 50)
+        val musician = Mucians("James", "Violin", 50)
 
         //inheritance
 
-        var lars = SuperMusicians("Vavela", "Violin", 25)
+        val lars = SuperMusicians("Vavela", "Violin", 25)
         println(lars.name)
         println(lars.bannStar("Pink"))
 
@@ -23,17 +23,17 @@ class MainActivity : AppCompatActivity() {
 
         //static Polymorphism
 
-        var math = Mathematics()
+        val math = Mathematics()
         println(math.sum())
         println(math.sum(3, 4))
         println(math.sum(3, 4, 5))
 
         //dynamicPolymorphism
 
-        var animal = Animal()
+        val animal = Animal()
         animal.sing()
 
-        var cat = Cat()
+        val cat = Cat()
         cat.sing()
 
         //abstract & interface
@@ -42,14 +42,43 @@ class MainActivity : AppCompatActivity() {
 
         //var people=People() =>Cannot create an instance of an abstaract class
 
-        var myPiano=Piano()
-        myPiano.brand="Yamaha"
-        myPiano.digital=true
+        val myPiano = Piano()
+        myPiano.brand = "Yamaha"
+        myPiano.digital = true
         println(myPiano.brand)
         println(myPiano.digital.toString())
         println(myPiano.roomName)
         myPiano.info()
 
+        //Lambda Expression
+        fun printString(myString: String) {
+            println(myString)
+        }
+        printString("myTest")
+
+        val testString = { myString: String -> println(myString) }
+        testString("My Lambda String")
+
+        val multiplyLambda = { a: Int, b: Int -> a * b }
+        val ex = multiplyLambda(4, 5)
+        println(ex)
+        val multiplyLambda2: (Int, Int) -> Int = { a, b -> a + b }
+        val ex2 = multiplyLambda2(10, 5)
+        println(ex2)
+
+        //asenkron
+
+        //callback Function
+
+        fun downloadMusicians(url: String, completion: (Mucians) -> Unit) {
+            //url download
+            val music = Mucians("Broken Bells", "Rap", 35)
+            completion(music)
+        }
+        downloadMusicians("Metelllica.com", { artist ->
+            println(artist.name)
+            println(artist.age)
+        })
 
 
     }
