@@ -1,6 +1,6 @@
 package com.mtehan.myapplication
 
-class User {
+class User : People {
 
     var name: String? = null
     var age: Int? = null

@@ -36,6 +36,21 @@ class MainActivity : AppCompatActivity() {
         var cat = Cat()
         cat.sing()
 
+        //abstract & interface
+
+        println(myUser.information())
+
+        //var people=People() =>Cannot create an instance of an abstaract class
+
+        var myPiano=Piano()
+        myPiano.brand="Yamaha"
+        myPiano.digital=true
+        println(myPiano.brand)
+        println(myPiano.digital.toString())
+        println(myPiano.roomName)
+        myPiano.info()
+
+
 
     }
 }
